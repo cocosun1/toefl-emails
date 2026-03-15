@@ -259,11 +259,12 @@ button {
   flex-direction: row;
   min-height: 100vh;
   width: 100%;
+  max-width: 100vw;
 }
 .advanced-write-layout .write-prompt-sidebar {
   position: relative;
-  width: 360px;
-  min-width: 360px;
+  width: 440px;
+  min-width: 440px;
   flex-shrink: 0;
   padding: 1.5rem;
   background: var(--bg);
@@ -275,8 +276,10 @@ button {
   flex: 1;
   min-width: 0;
   padding: 2rem 1.5rem;
+  max-width: none;
 }
-@media (max-width: 768px) {
+/* Only stack on narrow screens so side-by-side is kept on most viewports */
+@media (max-width: 640px) {
   .advanced-write-layout {
     flex-direction: column;
   }
@@ -302,10 +305,11 @@ button {
   white-space: pre-wrap;
   word-break: break-word;
 }
-.advanced-write-main {
-  max-width: 560px;
-}
 .advanced-write-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
   margin-bottom: 1rem;
 }
 .advanced-timer {
@@ -313,6 +317,13 @@ button {
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   color: var(--primary);
+}
+.advanced-wordcount {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+.advanced-wordcount strong {
+  color: var(--text);
 }
 .advanced-timer-expired {
   color: var(--warning);

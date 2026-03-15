@@ -6,6 +6,12 @@ import type { AdvancedPrompt } from "@/data/advancedPrompts";
 
 const TOTAL_SECONDS = 7 * 60; // 7 minutes
 
+function countWords(text: string): number {
+  const trimmed = text.trim();
+  if (!trimmed) return 0;
+  return trimmed.split(/\s+/).filter(Boolean).length;
+}
+
 interface AdvancedWriteClientProps {
   prompt: AdvancedPrompt;
 }
@@ -13,6 +19,7 @@ interface AdvancedWriteClientProps {
 export default function AdvancedWriteClient({ prompt }: AdvancedWriteClientProps) {
   const [subject, setSubject] = useState("");
   const [body, setBody] = useState("");
+  const wordCount = countWords(subject) + countWords(body);
   const [secondsLeft, setSecondsLeft] = useState(TOTAL_SECONDS);
   const [isExpired, setIsExpired] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -60,6 +67,9 @@ export default function AdvancedWriteClient({ prompt }: AdvancedWriteClientProps
             aria-live="polite"
           >
             Time remaining: {timeDisplay}
+          </span>
+          <span className="advanced-wordcount">
+            Words: <strong>{wordCount}</strong>
           </span>
         </div>
         <div className="advanced-write-form">
