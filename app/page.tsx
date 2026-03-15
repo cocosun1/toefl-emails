@@ -18,13 +18,21 @@ export default function HomePage() {
       <div className="mode-selector">
         <ModeSelector value={mode} onChange={setMode} />
       </div>
-      <form action="/write" method="GET" style={{ display: "inline-block" }}>
-        <input type="hidden" name="start" value="1" />
-        <input type="hidden" name="mode" value={mode} />
-        <button type="submit" className="btn-primary">
-          开始练习
-        </button>
-      </form>
+      <div className="home-actions">
+        <form action="/write" method="GET" style={{ display: "inline-block" }}>
+          <input type="hidden" name="start" value="1" />
+          <input type="hidden" name="mode" value={mode} />
+          <button type="submit" className="btn-primary">
+            开始练习
+          </button>
+        </form>
+        <a href="/typing" className="btn-secondary">
+          打字练习
+        </a>
+        <a href="/advanced" className="btn-secondary">
+          高级练习
+        </a>
+      </div>
     </main>
   );
 }
