@@ -3,11 +3,11 @@
 import Link from "next/link";
 
 const OPTIONS: { type: string; labelEn: string; labelZh: string }[] = [
+  { type: "wildcard", labelEn: "Wildcard", labelZh: "随机题目" },
   { type: "ask_for_help", labelEn: "Ask for help", labelZh: "请求帮助" },
   { type: "invite_friend", labelEn: "Invite a friend", labelZh: "邀请朋友" },
   { type: "invite_professional", labelEn: "Invite a professional", labelZh: "邀请专业人士" },
   { type: "propose_solution", labelEn: "Propose a solution", labelZh: "提出解决方案" },
-  { type: "wildcard", labelEn: "Wildcard", labelZh: "随机题目" },
 ];
 
 export default function AdvancedPage() {
