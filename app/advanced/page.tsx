@@ -20,6 +20,11 @@ export default function AdvancedPage() {
       <p className="home-intro">
         选择一种题目类型进入写作页面，在 7 分钟内完成邮件。随机题目将从题库中随机抽取一题。
       </p>
+      <p className="advanced-response-bank-link-wrap">
+        <Link href="/advanced/responses" className="advanced-response-bank-link">
+          Response bank 响应库 — 查看大家上传的练习回答
+        </Link>
+      </p>
       <ul className="advanced-option-list">
         {OPTIONS.map((opt) => (
           <li key={opt.type}>
